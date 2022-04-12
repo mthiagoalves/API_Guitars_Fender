@@ -1,11 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 const port = 3000;
 
 app.use(express.json());
+app.use(cors());
 
-const guitar = [
+const guitars = [
   {
     id: 01,
     name: "Nile Rodgers Hitmaker",
@@ -25,7 +27,7 @@ const guitar = [
     model: "Stratocaster",
   },
   {
-    id: 01,
+    id: 03,
     name: "American Professional II Deluxe",
     description:
       "The American Professional II Telecaster® Deluxe draws from more than sixty years of innovation, inspiration and evolution to meet the demands of today’s working player.",
@@ -34,7 +36,7 @@ const guitar = [
     model: "Telecaster",
   },
   {
-    id: 01,
+    id: 04,
     name: "Jim Root",
     description:
       "For heavy, molten nu-metal Tele® style, the Jim Root Telecaster delivers crushing detuned tone with a stark utilitarian look. ",
@@ -42,12 +44,21 @@ const guitar = [
     price: "1449.99",
     model: "Telecaster",
   },
+  {
+    id: 05,
+    name: "Player HH",
+    description:
+      "erfect for pummeling musical assaults, the Player Telecaster HH is pure Fender, through and through.",
+    img: "https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0145232513_gtr_frt_001_rr.jpg",
+    price: "1449.99",
+    model: "Telecaster",
+  },
 ];
 
-app.get("/guitar/find-guitar/:id", (req, res) => {
+app.get("/guitar/find-guitars/:id", (req, res) => {
   const idParam = req.params.id;
-  const chosenGuitar = guitar.find((guitar) => guitar.id == idParam);
-  res.send(guitar);
+  const chosenGuitar = guitars.find((guitars) => guitars.id == idParam);
+  res.send(chosenGuitar);
 });
 
 app.listen(port, () => {
