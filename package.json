@@ -4,7 +4,9 @@
   "description": "Repositório dedicado ao projeto 01 do módulo 02 do curso da Blue EdTech",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/mthiagoalves/Projeto01-Mod03/issues"
   },
-  "homepage": "https://github.com/mthiagoalves/Projeto01-Mod03#readme"
+  "homepage": "https://github.com/mthiagoalves/Projeto01-Mod03#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
 }
