@@ -40,7 +40,7 @@ const guitars = [
     name: "Jim Root",
     description:
       "For heavy, molten nu-metal Tele® style, the Jim Root Telecaster delivers crushing detuned tone with a stark utilitarian look. ",
-    img: "https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0114920345_gtr_frt_001_rr.jpg",
+    img: "https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10002/0134444780_gtr_frt_001_rr.jpg",
     price: "1449.99",
     model: "Telecaster",
   },
@@ -54,6 +54,10 @@ const guitars = [
     model: "Telecaster",
   },
 ];
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 app.get("/guitar/find-guitars/:id", (req, res) => {
   const idParam = req.params.id;
