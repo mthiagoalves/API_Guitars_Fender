@@ -21,7 +21,7 @@ const guitars = [
     id: 02,
     name: "JV Modified 50s HSS",
     description:
-      "The JV Modified Series combines classic aesthetics with modern playability to suit the needs of today’s guitarist.",
+      "The JV Modified Series combines classic aesthetics with modern playability to suit the needs of today guitarist.",
     img: "https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10004/0251802303_fen_ins_frt_1_rr.jpg",
     price: "1329.99",
     model: "Stratocaster",
