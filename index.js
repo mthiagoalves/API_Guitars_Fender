@@ -1,5 +1,5 @@
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
 const app = express();
 
 const port = 3000;
@@ -8,63 +8,81 @@ app.use(express.json());
 app.use(cors());
 
 const guitars = [
-  {
-    id: 01,
-    name: "Nile Rodgers Hitmaker",
-    description:
-      "Nile Rodgers has written, produced, and performed on recordings that have sold more than 500-million albums globally.",
-    img: "https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0115922705_fen_ins_frt_1_rr.jpg",
-    price: "2599.99",
-    model: "Stratocaster",
-  },
-  {
-    id: 02,
-    name: "JV Modified 50s HSS",
-    description:
-      "The JV Modified Series combines classic aesthetics with modern playability to suit the needs of today guitarist.",
-    img: "https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10004/0251802303_fen_ins_frt_1_rr.jpg",
-    price: "1329.99",
-    model: "Stratocaster",
-  },
-  {
-    id: 03,
-    name: "American Professional II Deluxe",
-    description:
-      "The American Professional II Telecaster® Deluxe draws from more than sixty years of innovation, inspiration and evolution to meet the demands of today’s working player.",
-    img: "https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0144513506_gtr_frt_001_rl.jpg",
-    price: "1749.99",
-    model: "Telecaster",
-  },
-  {
-    id: 04,
-    name: "Jim Root",
-    description:
-      "For heavy, molten nu-metal Tele® style, the Jim Root Telecaster delivers crushing detuned tone with a stark utilitarian look. ",
-    img: "https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10002/0134444780_gtr_frt_001_rr.jpg",
-    price: "1449.99",
-    model: "Telecaster",
-  },
-  {
-    id: 05,
-    name: "Player HH",
-    description:
-      "erfect for pummeling musical assaults, the Player Telecaster HH is pure Fender, through and through.",
-    img: "https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0145232513_gtr_frt_001_rr.jpg",
-    price: "1449.99",
-    model: "Telecaster",
-  },
+   {
+      id: 01,
+      name: 'JV Modified 50s HSS',
+      description:
+         'The JV Modified Series combines classic aesthetics with modern playability to suit the needs of today guitarist.',
+      img: './assets/img/001.png',
+      price: '1329.99',
+      model: 'Stratocaster',
+   },
+   {
+      id: 02,
+      name: 'American Professional II Deluxe',
+      description:
+         'The American Professional II Telecaster® Deluxe draws from more than sixty years of innovation, inspiration and evolution to meet the demands of today’s working player.',
+      img: './assets/img/002.png',
+      price: '1749.99',
+      model: 'Telecaster',
+   },
+   {
+      id: 03,
+      name: 'Jim Root',
+      description:
+         'For heavy, molten nu-metal Tele® style, the Jim Root Telecaster delivers crushing detuned tone with a stark utilitarian look. ',
+      img: './assets/img/003.png',
+      price: '1449.99',
+      model: 'Stratocaster',
+   },
+   {
+      id: 04,
+      name: 'Player HH',
+      description:
+         'erfect for pummeling musical assaults, the Player Telecaster HH is pure Fender, through and through.',
+      img: './assets/img/004.png',
+      price: '1449.99',
+      model: 'Telecaster',
+   },
+   {
+      id: 05,
+      name: 'JIMMY PAGE',
+      description:
+         'When the opening riff of “Good Times Bad Times” came through the radio in 1969, everything changed.',
+      img: './assets/img/005.png',
+      price: '1599.99',
+      model: 'Telecaster',
+   },
+   {
+      id: 06,
+      name: 'JIM ROOT JAZZMASTER®',
+      description:
+         'Stark, dark and menacing, the crushing Jim Root Jazzmaster guitar has got to be the most distinctively minimalist version of the instrument ever devised in the models entire half-century history.',
+      img: './assets/img/006.png',
+      price: '1949.99',
+      model: 'Telecaster',
+   },
+   {
+      id: 07,
+      name: 'VINTERA® 60S BIGSBY®',
+      description:
+         'For players who want the style and sound of Fender’s classic years, we created the Vintera® ‘60s Telecaster® Bigsby.',
+      img: './assets/img/007.png',
+      price: '1199.99',
+      model: 'Telecaster',
+   },
 ];
 
-app.get("/", (req, res) => {
-  res.render("index");
+app.get('/guitars/find-guitar', (req, res) => {
+   res.send(guitars);
 });
 
-app.get("/guitar/find-guitars/:id", (req, res) => {
-  const idParam = req.params.id;
-  const chosenGuitar = guitars.find((guitars) => guitars.id == idParam);
-  res.send(chosenGuitar);
+app.get('/guitars/guitar/:id', (req, res) => {
+   const idParam = Number(req.params.id);
+   const chosenGuitar = guitars.find((guitars) => guitars.id === idParam);
+   res.send(chosenGuitar);
 });
 
 app.listen(port, () => {
-  console.log(`Servidor rodando na porta http://localhost:${port}`);
+   console.log(`Servidor rodando na porta http://localhost:${port}`);
 });
