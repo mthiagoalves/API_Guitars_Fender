@@ -68,13 +68,38 @@ const findGuitarsService = () => {
    return guitars;
 };
 
-const findByIDGuitarService = (idParam) => {
-   const guitar = guitars.find((guitars) => guitars.id === idParam);
+const findByIDGuitarService = (idGuitar) => {
+   const guitar = guitars.find((guitars) => guitars.id === idGuitar);
 
    return guitar;
+};
+
+const createGuitarControler = (newGuitar) => {
+   const newId = guitars.length + 1;
+   newGuitar.id = newId;
+   guitars.push(newGuitar);
+
+   return newGuitar;
+};
+
+const updateGuitarControler = (idGuitar, guitarEdit) => {
+   guitarEdit['id'] = idGuitar;
+   const guitarIndex = guitars.findIndex((guitar) => guitar.id == idGuitar);
+   guitars[guitarIndex] = guitarEdit;
+
+   return guitarEdit;
+};
+
+const deleteGuitarControler = (idGuitar) => {
+   const guitarsIndex = guitars.findIndex((guitar) => guitar.id == idGuitar);
+
+   return guitars.splice(guitarsIndex, 1);
 };
 
 module.exports = {
    findGuitarsService,
    findByIDGuitarService,
+   createGuitarControler,
+   updateGuitarControler,
+   deleteGuitarControler,
 };

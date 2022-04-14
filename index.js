@@ -9,12 +9,6 @@ app.use(express.json());
 app.use(cors());
 app.use('/guitars', route);
 
-// app.get('/guitars/guitar/:id', (req, res) => {
-//    const idParam = Number(req.params.id);
-//    const chosenGuitar = guitars.find((guitars) => guitars.id === idParam);
-//    res.send(chosenGuitar);
-// });
-
 app.listen(port, () => {
    console.log(`Servidor rodando na porta http://localhost:${port}`);
 });
