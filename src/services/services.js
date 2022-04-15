@@ -57,7 +57,7 @@ const guitars = [
       id: 07,
       name: 'VINTERA® 60S BIGSBY®',
       description:
-         'For players who want the style and sound of Fender’s classic years, we created the Vintera® ‘60s Telecaster® Bigsby.',
+         'For players who want the style and sound of Fender classic years, we created the Vintera® ‘60s Telecaster® Bigsby.',
       img: './assets/img/007.png',
       price: '1199.99',
       model: 'Telecaster',
