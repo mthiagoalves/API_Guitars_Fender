@@ -78,7 +78,7 @@ const deleteGuitarControler = (req, res) => {
 
    guitarsService.deleteGuitarControler(idGuitar);
 
-   res.send({ massage: 'Guitar Deleted' });
+   res.send({ message: 'Guitar Deleted' });
 };
 
 module.exports = {
