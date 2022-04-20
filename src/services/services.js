@@ -8,7 +8,6 @@ const findGuitarsService = async () => {
 
 const findByIDGuitarService = async (idGuitar) => {
   const guitar = await Guitars.findById(idGuitar);
-
   return guitar;
 };
 
@@ -18,8 +17,8 @@ const createGuitarControler = async (newGuitar) => {
 };
 
 const updateGuitarControler = async (idGuitar, guitarEdit) => {
-  const guitarUpdate = await Guitars.findByIdAndUpdate(idGuitar, guitarEdit);
-  return guitarUpdate;
+  const guitarUpdated = await Guitars.findByIdAndUpdate(idGuitar, guitarEdit);
+  return [guitarUpdated, guitarEdit];
 };
 
 const deleteGuitarControler = async (idGuitar) => {

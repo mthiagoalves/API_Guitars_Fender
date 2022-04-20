@@ -14,10 +14,6 @@ const findAllGuitarsController = async (req, res) => {
 const findByIDGuitarController = async (req, res) => {
   const idGuitar = req.params.id;
 
-  if (!mongoose.Types.ObjectId.isValid(idGuitar)) {
-    return res.status(400).send({ message: 'Id invalid' });
-  }
-
   const chosenGuitar = await guitarsService.findByIDGuitarService(idGuitar);
 
   if (!chosenGuitar) {
@@ -30,15 +26,6 @@ const findByIDGuitarController = async (req, res) => {
 const createGuitarControler = async (req, res) => {
   const guitar = req.body;
 
-  if (
-    !guitar ||
-    !guitar.name ||
-    !guitar.price ||
-    !guitar.img ||
-    !guitar.description
-  ) {
-    return res.status(400).send({ message: 'Send all info the guitar' });
-  }
   const newGuitar = await guitarsService.createGuitarControler(guitar);
 
   res.status(201).send(newGuitar);
@@ -46,10 +33,6 @@ const createGuitarControler = async (req, res) => {
 
 const updateGuitarControler = async (req, res) => {
   const idGuitar = req.params.id;
-
-  if (!mongoose.Types.ObjectId.isValid(idGuitar)) {
-    return res.status(400).send({ message: 'Id invalid' });
-  }
 
   const guitarEdit = req.body;
 
@@ -73,10 +56,6 @@ const updateGuitarControler = async (req, res) => {
 
 const deleteGuitarControler = async (req, res) => {
   const idGuitar = req.params.id;
-
-  if (!mongoose.Types.ObjectId.isValid(idGuitar)) {
-    return res.status(400).send({ message: 'Id invalid' });
-  }
 
   await guitarsService.deleteGuitarControler(idGuitar);
 

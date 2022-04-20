@@ -1,11 +1,11 @@
 const route = require('express').Router();
-
 const controllerGuitar = require('../controller/controller');
+const {validIdGuitar, validObjectGuitar} = require('../middlewares/middlewares')
 
 route.get('/find-guitar', controllerGuitar.findAllGuitarsController);
-route.get('/guitar/:id', controllerGuitar.findByIDGuitarController);
-route.post('/create', controllerGuitar.createGuitarControler);
-route.put('/update/:id', controllerGuitar.updateGuitarControler);
-route.delete('/delete/:id', controllerGuitar.deleteGuitarControler);
+route.get('/guitar/:id', validIdGuitar, controllerGuitar.findByIDGuitarController);
+route.post('/create', validObjectGuitar, controllerGuitar.createGuitarControler);
+route.put('/update/:id', validIdGuitar, validObjectGuitar, controllerGuitar.updateGuitarControler);
+route.delete('/delete/:id', validIdGuitar, controllerGuitar.deleteGuitarControler);
 
 module.exports = route;
